@@ -1,0 +1,128 @@
+<title>{% block title %} Adaptive Difference & Beetle {% endblock %}</title>
+
+
+
+
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+    {% for category, message in messages %}
+        {% if category == 'Error occurred' %}
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModalBtn">&times;</span>
+                    <h2>{{ category }}</h2>
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+        {% else %}
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close" id="closeModalBtn">&times;</span>
+                    <h2>{{ category }}</h2>
+                    <p>{{ message }}</p>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+{% endwith %}
+<script type="text/javascript">
+    // Get references to the modal and buttons
+    const modal = document.getElementById('modal');
+    try{
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        // Close the modal
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+    } catch (error) {
+        console.log('error')
+    }
+
+
+    // Close the modal if the user clicks outside the modal content
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+</script>
+
+{% block content %}
+<body>
+    <header>
+        <h1>Adaptive Difference & Beetle</h1>
+        <p>A new approach to machine learning that is more adaptive and robust to change.</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#beetle">Beetle</a>
+        <a href="#applications">Applications</a>
+        <a href="#try">Demo</a>
+        <a href="#download">Download</a>
+    </nav>
+    <section id="about">
+        <h2>About Adaptive Difference</h2>
+        <p>
+            The Adaptive Difference Concept is a new approach to machine learning that is more adaptive and robust to change. It is based on the idea of using differences between data points to learn, rather than the absolute values of the data points themselves. This makes Beetle models less sensitive to noise and outliers, and more able to generalize to new data.</p>
+            <p>Beetle has a wide variety of applications, including:</p>
+        </p>
+        <ul>
+          <li>Anomaly detection</li><br>
+          <li>Recommendation systems</li><br>
+          <li>Natural language processing</li>
+        </ul>
+    </section>
+
+    <section id="beetle">
+        <h2>Beetle</h2>
+        <p>
+            The machine learning library <strong>Beetle</strong>, is a family of adaptive difference-implemented models(<strong>Ann</strong>, <strong>Lolo</strong> and <strong>Core</strong>) and is designed to implement the Adaptive Difference approach for machine learning tasks, like predictions. By leveraging the concept of differences between data points, it aims to provide more reliable and adaptive models with <strong>Ann</strong> being the stablest model yet.
+        </p>
+    </section>
+
+    <section id="applications">
+        <h2>Applications</h2>
+        <p>
+            Beetle can be used in a wide variety of applications, including:
+        </p>
+        <ul>
+          <li><strong>Anomaly detection:</strong> Beetle can be used to detect anomalies in data, such as fraud or cyberattacks. For example, Beetle can be used to detect fraudulent credit card transactions by identifying transactions that are significantly different from the customer's usual spending patterns.</li><br>
+          <li><strong>Recommendation systems:</strong> Beetle can be used to generate personalized recommendations for users, based on their past behavior and preferences. For example, Beetle can be used to recommend products to customers on an e-commerce website, or to recommend movies to users on a streaming service.</li><br>
+          <li><strong>Natural language processing:</strong> Beetle can be used to improve the performance of natural language processing tasks, such as machine translation and text summarization. For example, Beetle can be used to develop machine translation models that are more accurate and fluent, or to develop text summarization models that can generate more informative and concise summaries of long texts.</li>
+        </ul>
+    </section>
+
+    <section id="try">
+        <h2>Demo</h2>
+        <p>
+            Use one of our Beetle powered Web app.
+        </p>
+        <a href="/login" class="download-button">Let's go</a>
+    </section>
+
+    <section id="download">
+        <h2>Download Beetle Toolset</h2>
+        <p>
+            Get started with Beetle by downloading our toolset.
+        </p>
+        <a href="download-link" class="download-button">Download Now</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 <a href="http://bluvid.000webhostapp.com/"><strong>Bluvid</strong></a>. All rights reserved.</p>
+    </footer>
+
+</body>
+{% endblock %}

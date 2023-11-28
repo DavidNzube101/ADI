@@ -1,0 +1,193 @@
+{% extends 'apps.html' %}
+
+{% block title %} Temperature Prediction {% endblock %}
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A short description of your page's content">
+  <style>
+    body {
+      background-color: #fff;
+      font-family: "Segoe UI";
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background-color: #2a52be;
+      color: #fff;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+      margin: 0;
+    }
+
+    .main {
+      padding: 20px;
+    }
+
+    .main h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .main select {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .main input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .main button {
+      background-color: #2a52be;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10pc;
+      cursor: pointer;
+    }
+
+    .main p {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .footer {
+      background-color: #2a52be;
+      color: #fff;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .footer p {
+      font-size: 12px;
+      margin: 0;
+    }
+    #prediction-text{
+      font-size: 50px;
+      font-weight: bolder;
+      font-family: "Segoe UI";
+    }
+    select, input[type="date"]{
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10pc;
+      outline: none;
+      border: 0;
+      background: #f5f5f5;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Nigeria Temperature Prediction</h1>
+    </header>
+
+    <main class="main">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <form action="/temperature-predictor" method="POST">
+        <h2>Select a model:</h2>
+        <select name="model" id="city-select">
+          <option value="Ann">Ann</option>
+          <option value="Lolo">Lolo</option>
+          <option value="Core">Core</option>
+        </select>
+        <br>
+        <br>
+        <br>
+
+        <h2>Select a city:</h2>
+        <select name="city" id="city-select">
+          <option value="Abuja">Abuja</option>
+          <option value="Lagos">Lagos</option>
+          <option value="Ibadan">Ibadan</option>
+          <option value="Kano">Kano</option>
+          <option value="Port Harcourt">Port Harcourt</option>
+        </select>
+        <br>
+        <br>
+        <br>
+        
+        <h2>Select a date:</h2>
+
+        <input name="date" type="date" id="date-input">
+
+        <button type="submit" id="predict-button">Predict Temperature</button>
+      </form>
+
+      <p>Weather prediction for {{ date }}</p>
+      <p id="prediction-text">{{ weather }}</p>
+    </main>
+
+    <footer class="footer">
+      <p>This website uses a machine learning model to predict the temperature of all cities in Nigeria. The model is trained on historical data and is updated regularly to ensure accuracy.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Get the city select element
+    const citySelect = document.querySelector('#city-select');
+
+    // Get the date input element
+    const dateInput = document.querySelector('#date-input');
+
+    // Get the predict button element
+    const predictButton = document.querySelector('#predict-button');
+
+    // Get the prediction text element
+    const predictionText = document.querySelector('#prediction-text');
+
+    // Add an event listener to the predict button
+    // predictButton.addEventListener('click', () => {
+    //   // Get the selected city
+    //   const city = citySelect.value;
+
+    //   // Get the selected date
+    //   const date = dateInput.value;
+
+    //   // Make a request to the temperature prediction API
+    //   fetch(`https://api.example.com/temperature-prediction?city=${city}&date=${date}`)
+    //     .then(response => response.json())
+    //     .then(data => {
+    //       // Get the predicted temperature
+    //       const predictedTemperature = data.temperature;
+
+    //       // Display the predicted temperature in the prediction text element
+    //       predictionText.textContent = `The predicted temperature in ${city} on ${date} is ${predictedTemperature} degrees Celsius.`;
+    //     });
+    // });
+  </script>
+</body>
+</html>
+
+{% endblock %}

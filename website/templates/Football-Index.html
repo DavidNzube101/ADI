@@ -1,0 +1,131 @@
+{% extends 'apps.html' %}
+
+{% block title %} Football Predictions {% endblock %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      background-color: #2a52be;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .header h1 {
+      font-size: 30px;
+      margin: 0;
+    }
+
+    .main {
+      padding: 20px;
+    }
+
+    .main h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .main table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .main th,
+    .main td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+
+    .footer {
+      background-color: #2a52be;
+      color: #fff;
+      padding: 20px;
+    }
+
+    .footer p {
+      font-size: 12px;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Football Predictions</h1>
+    </header>
+
+    <main class="main">
+      <h2>Upcoming Matches</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Home Team</th>
+            <th>Away Team</th>
+            <th>Prediction</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2023-09-27</td>
+            <td>Manchester United</td>
+            <td>Liverpool</td>
+            <td>Draw</td>
+          </tr>
+          <tr>
+            <td>2023-09-27</td>
+            <td>Chelsea</td>
+            <td>Tottenham Hotspur</td>
+            <td>Chelsea</td>
+          </tr>
+          <tr>
+            <td>2023-09-27</td>
+            <td>Arsenal</td>
+            <td>Manchester City</td>
+            <td>Manchester City</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <footer class="footer">
+      <p>These predictions are based on a variety of factors, including team form, recent results, and head-to-head record. However, it is important to note that all predictions are for entertainment purposes only and should not be used for betting or gambling.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Get the table element
+    const table = document.querySelector('table');
+
+    // Add an event listener to the table body element
+    table.tbody.addEventListener('click', (event) => {
+      // Get the row that was clicked
+      const row = event.target.closest('tr');
+
+      // Get the prediction for the row
+      const prediction = row.querySelector('td:last-child').textContent;
+
+      // Display the prediction in a modal window
+      alert(`The predicted result for the match between ${row.querySelector('td:nth-child(2)').textContent} and ${row.querySelector('td:nth-child(3)').textContent} is ${prediction}.`);
+    });
+  </script>
+</body>
+</html>
+
+{% endblock %}

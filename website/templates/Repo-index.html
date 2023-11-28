@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Repository</title>
+  <style>
+    body {
+      background-color: #fff;
+      font-family: sans-serif;
+    }
+
+    .navbar {
+      background-color: #2a52be;
+      color: #fff;
+      padding: 10px;
+    }
+
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      padding: 10px;
+    }
+
+    .navbar a:hover {
+      background-color: #3a62c3;
+    }
+
+    .main {
+      padding: 20px;
+    }
+
+    .main h2 {
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .main table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .main th,
+    .main td {
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="#">Home</a>
+    <a href="#">Browse</a>
+    <a href="#">Join Group</a>
+  </nav>
+
+  <main class="main">
+    <h2>Repository Contents</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Type</th>
+          <th>Created At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>README.md</td>
+          <td>This is the repository README file.</td>
+          <td>File</td>
+          <td>2023-09-26</td>
+        </tr>
+        <tr>
+          <td>LICENSE</td>
+          <td>This is the repository license file.</td>
+          <td>File</td>
+          <td>2023-09-26</td>
+        </tr>
+        <tr>
+          <td>src</td>
+          <td>This is the repository source code directory.</td>
+          <td>Directory</td>
+          <td>2023-09-26</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    // Get the navbar element
+    const navbar = document.querySelector('.navbar');
+
+    // Add an event listener to the join group button
+    navbar.querySelector('.navbar a:last-child').addEventListener('click', () => {
+      // Display a modal window with a form to join the repo group
+      alert('This feature is not yet implemented.');
+    });
+  </script>
+</body>
+</html>
